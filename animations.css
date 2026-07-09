@@ -1,0 +1,49 @@
+/* =========================================================
+   DataNexus Solutions — Animations
+   ========================================================= */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(.2,.7,.3,1), transform 0.7s cubic-bezier(.2,.7,.3,1);
+}
+[data-reveal].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal-delay="1"] { transition-delay: 0.08s; }
+[data-reveal-delay="2"] { transition-delay: 0.16s; }
+[data-reveal-delay="3"] { transition-delay: 0.24s; }
+[data-reveal-delay="4"] { transition-delay: 0.32s; }
+
+/* Hero entrance */
+.hero h1, .hero .eyebrow, .hero .lead, .hero-actions, .hero-stats {
+  animation: fadeUp 0.8s cubic-bezier(.2,.7,.3,1) both;
+}
+.hero .eyebrow { animation-delay: 0s; }
+.hero h1 { animation-delay: 0.08s; }
+.hero .lead { animation-delay: 0.16s; }
+.hero-actions { animation-delay: 0.24s; }
+.hero-stats { animation-delay: 0.34s; }
+.hero-visual { animation: fadeScale 0.9s cubic-bezier(.2,.7,.3,1) 0.2s both; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeScale {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.stat .num[data-count] { font-variant-numeric: tabular-nums; }
+
+.tl-item.in-view .idx {
+  box-shadow: 0 0 0 6px rgba(34,211,238,0.08);
+}
+
+@keyframes gridDrift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 64px 64px, 64px 64px; }
+}
+body::before { animation: gridDrift 40s linear infinite; }
